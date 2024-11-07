@@ -1,0 +1,55 @@
+require 'dotenv/load' # Load environment variables from .env
+
+platform :android do
+  desc "Build and distribute the staging app"
+  lane :stage do
+    # Set the environment for staging
+    app_id = ENV["STAGE_APP_ID"]
+    version_code = ENV["STAGE_VERSION_CODE"]
+    version_name = ENV["STAGE_VERSION_NAME"]
+    firebase_app_id = ENV["STAGE_FIREBASE_APP_ID"]
+
+    gradle(
+      task: "clean assembleStagingRelease", # Specify the flavor and build type
+      project_dir: "./android"
+    )
+
+    # Rename the APK to viewmo-stage.apk
+    sh "mv ./android/app/build/outputs/apk/staging/release/droid-staging-vdroid_stage.apk ./android/app/build/outputs/apk/staging/release/droid-stage.apk"
+
+    # Distribute the APK via Firebase App Distribution
+    firebase_app_distribution(
+      firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"], # Use your Firebase CLI token from .env
+      app: firebase_app_id,  # Now using the variable for Firebase App ID
+      testers: ENV["STAGE_TESTERS"], # Add testers' emails for staging in the .env
+      release_notes: "Staging build for testing",
+      android_artifact_path: "./android/app/build/outputs/apk/staging/release/droid-stage.apk"
+    )
+  end
+
+  desc "Build and distribute the production app"
+  lane :live do
+    # Set the environment for production
+    app_id = ENV["PROD_APP_ID"]
+    version_code = ENV["PROD_VERSION_CODE"]
+    version_name = ENV["PROD_VERSION_NAME"]
+    firebase_app_id = ENV["PROD_FIREBASE_APP_ID"]
+
+    gradle(
+      task: "clean assembleProductionRelease", # Specify the flavor and build type
+      project_dir: "./android"
+    )
+
+    # Rename the APK to viewmo.apk
+    sh "mv ./android/app/build/outputs/apk/production/release/droid-production-vdroid.apk ./android/app/build/outputs/apk/production/release/droid.apk"
+
+    # Distribute the APK via Firebase App Distribution
+    firebase_app_distribution(
+      firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"], # Use your Firebase CLI token from .env
+      app: firebase_app_id,  # Now using the variable for Firebase App ID
+      testers: ENV["PROD_TESTERS"], # Add testers' emails for production in the .env
+      release_notes: "Production build for testing",
+      android_artifact_path: "./android/app/build/outputs/apk/production/release/droid.apk"
+    )
+  end
+end

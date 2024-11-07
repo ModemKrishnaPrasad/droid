@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "795263807968",
+    "project_id": "droid-90b60",
+    "storage_bucket": "droid-90b60.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795263807968:android:9cbe5401cac2d5f76d3b85",
+        "android_client_info": {
+          "package_name": "com.example.droid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY2ItRmNEjWayFhL5mCZIkctSfNzIh6Jo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795263807968:android:77d2651ee6d183f46d3b85",
+        "android_client_info": {
+          "package_name": "com.example.droid_stage"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY2ItRmNEjWayFhL5mCZIkctSfNzIh6Jo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

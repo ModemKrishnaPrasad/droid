@@ -1,4 +1,4 @@
-package com.droid
+package com.example.droid
 
 import android.app.Application
 import com.facebook.react.PackageList

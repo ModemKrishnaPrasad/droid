@@ -8,13 +8,14 @@ buildscript {
         kotlinVersion = "1.9.24"
     }
     repositories {
-        google()
+        google()  // Make sure Google repository is included
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
-        classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath("com.android.tools.build:gradle:7.0.4") // Specify version of the Gradle plugin
+        classpath("com.facebook.react:react-native-gradle-plugin") // React Native Gradle plugin
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}") // Kotlin plugin
+        classpath("com.google.gms:google-services:4.4.2") // Google Services plugin for Firebase
     }
 }
 
