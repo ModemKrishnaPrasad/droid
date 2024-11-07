@@ -20,5 +20,5 @@ This project is a React Native mobile application that integrates Firebase for b
 
 ### Steps
 1. Clone the repository:   
-   git clone https://github.com/your-repo/your-project.git
-   cd your-project
+   - git clone https://github.com/your-repo/your-project.git
+   - cd your-project
