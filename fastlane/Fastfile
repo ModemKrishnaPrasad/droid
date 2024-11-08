@@ -15,7 +15,7 @@ platform :android do
     )
 
     # Rename the APK to viewmo-stage.apk
-    sh "mv ./android/app/build/outputs/apk/staging/release/droid-staging-vdroid_stage.apk ./android/app/build/outputs/apk/staging/release/droid-stage.apk"
+    sh "mv ../android/app/build/outputs/apk/staging/release/app-staging-release.apk ../android/app/build/outputs/apk/staging/release/droid-stage.apk"
 
     # Distribute the APK via Firebase App Distribution
     firebase_app_distribution(
@@ -41,7 +41,7 @@ platform :android do
     )
 
     # Rename the APK to viewmo.apk
-    sh "mv ./android/app/build/outputs/apk/production/release/droid-production-vdroid.apk ./android/app/build/outputs/apk/production/release/droid.apk"
+    sh "mv ../android/app/build/outputs/apk/production/release/app-production-release.apk ../android/app/build/outputs/apk/production/release/droid.apk"
 
     # Distribute the APK via Firebase App Distribution
     firebase_app_distribution(

@@ -1,4 +1,4 @@
-package com.rugastech.droid
+package com.example.droid
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
